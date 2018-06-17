@@ -1,0 +1,44 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 16, in script
+    "Kudo is working with her laptop"
+IOError: Couldn't find file 'bgm morning.mp3'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 16, in script
+    "Kudo is working with her laptop"
+  File "/Applications/renpy-7.0.0-sdk/renpy/ast.py", line 652, in execute
+    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
+  File "/Applications/renpy-7.0.0-sdk/renpy/exports.py", line 1199, in say
+    who(what, *args, **kwargs)
+  File "/Applications/renpy-7.0.0-sdk/renpy/character.py", line 1016, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "/Applications/renpy-7.0.0-sdk/renpy/character.py", line 817, in do_display
+    **display_args)
+  File "/Applications/renpy-7.0.0-sdk/renpy/character.py", line 566, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/Applications/renpy-7.0.0-sdk/renpy/ui.py", line 287, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Applications/renpy-7.0.0-sdk/renpy/display/core.py", line 2649, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "/Applications/renpy-7.0.0-sdk/renpy/display/core.py", line 3318, in interact_core
+    renpy.audio.audio.periodic()
+  File "/Applications/renpy-7.0.0-sdk/renpy/audio/audio.py", line 988, in periodic_thread_main
+    periodic_pass()
+  File "/Applications/renpy-7.0.0-sdk/renpy/audio/audio.py", line 932, in periodic_pass
+    c.periodic()
+  File "/Applications/renpy-7.0.0-sdk/renpy/audio/audio.py", line 416, in periodic
+    topf = load(self.file_prefix + filename + self.file_suffix)
+  File "/Applications/renpy-7.0.0-sdk/renpy/audio/audio.py", line 69, in load
+    rv = renpy.loader.load(fn)
+  File "/Applications/renpy-7.0.0-sdk/renpy/loader.py", line 555, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'bgm morning.mp3'.
+
+Darwin-17.5.0-x86_64-i386-64bit
+Ren'Py 7.0.0.196
+LearnProgrammingWithKudo 1.0
+Sun Jun 17 11:45:38 2018

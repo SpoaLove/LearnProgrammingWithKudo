@@ -3,13 +3,16 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define kudo = Character("kudo")
+define kudo = Character('kudo',color="eadbe6")
 define slowdissolve = Dissolve(1.0)
 
 label start:
 
+    play music "bgms/bgm morning.mp3"
+
     scene bg bushitsu
     show kudo working
+    with dissolve
     "Kudo is working with her laptop"
     "Let's go and check out"
 
@@ -34,6 +37,12 @@ menu:
     "No, I don't.":
         jump choice1_no
 
+label choice1_no:
+    show kudo sad handin
+    "she look very dissapointed..."
+    $ menu_flag = False
+    "lets try it anyways!"
+
 label choice1_yes:
 
     $ menu_flag = True
@@ -41,14 +50,6 @@ label choice1_yes:
     kudo "Wafu!"
     show kudo working happy
     kudo "Wait a second, I will open up the tutorial lesson for you"
-    jump choice1_done
-
-label choice1_no:
-    show kudo sad handin
-    "she look very dissapointed..."
-    $ menu_flag = False
-    "lets try it anyways!"
-    jump choice1_yes
 
 label choice1_done:
     jump start
